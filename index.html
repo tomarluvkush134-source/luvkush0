@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#ffd6e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: 'Poppins', sans-serif;
+  overflow:hidden;
+}
+
+/* PAGE 1 */
+#page1{
+  text-align:center;
+}
+#page1 h1{
+  color:#ff2f7d;
+  font-size:26px;
+}
+#tap{
+  margin-top:20px;
+  color:#555;
+  animation:blink 1.2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:1;}
+  50%{opacity:0.3;}
+}
+
+/* PAGE 2 */
+#page2{
+  display:none;
+  text-align:center;
+}
+#page2 h1{
+  color:#ff1f6d;
+  margin-bottom:20px;
+}
+
+/* CAKE */
+#cake{
+  width:200px;
+  height:140px;
+  background:#ff8fb1;
+  border-radius:0 0 20px 20px;
+  position:relative;
+  margin:auto;
+}
+#cake::before{
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:0;
+  width:100%;
+  height:20px;
+  background:#fff;
+  border-radius:20px 20px 0 0;
+}
+
+/* KNIFE */
+#knife{
+  width:120px;
+  height:8px;
+  background:#ccc;
+  position:absolute;
+  top:60px;
+  left:-150px;
+  transition:1.5s;
+}
+.cut #knife{
+  left:250px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1">
+  <h1>Something Beautiful Is Coming 💖</h1>
+  <div id="tap">Tap anywhere 👇</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2">
+  <h1>🎉 Happy Birthday Priyanshi 🎂</h1>
+  <div style="position:relative;">
+    <div id="cake"></div>
+    <div id="knife"></div>
+  </div>
+</div>
+
+<script>
+document.body.addEventListener("click",()=>{
+  document.getElementById("page1").style.display="none";
+  document.getElementById("page2").style.display="block";
+  setTimeout(()=>{
+    document.getElementById("page2").classList.add("cut");
+  },500);
+});
+</script>
+
+</body>
+</html>
